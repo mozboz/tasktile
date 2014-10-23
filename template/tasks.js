@@ -139,6 +139,11 @@ if (Meteor.isClient) {
             refitTiles();
             // Meteor.Router.to('postPage', post);
 
+        },
+
+        'click #gomodal': function(event) {
+            console.log("ohhai2");
+            bootbox.alert("Hello world!");
         }
     });
 
