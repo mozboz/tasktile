@@ -17,6 +17,7 @@ menu, footer, header, nav, section, summary, time, mark, audio, video {
 	------	*/
 
 body {
+    background: #ebebeb;
 }
 
 h4 {
@@ -69,7 +70,7 @@ h4 {
     -o-transition: all .25s ease-out;
     -ms-transition: all .25s ease-out;
     transition: all .25s ease-out;
-    border-radius: 3px;
+    border-radius: 2px;
     padding: 7px;
 
     box-shadow: 0px 2px 3px #333;

@@ -1,12 +1,21 @@
 if (Meteor.isClient) {
     Meteor.startup(function() {
-        $('.firsttest').freetile({animate: true, elementDelay: 5});
+        $('#tileGrid').freetile({animate: true, elementDelay: 5});
+
+        Deps.autorun(function() {
+            $('#tileGrid').freetile();
+        });
+
+        setTimeout(function(){$('#tileGrid').freetile();},250);
     })
 
-Deps.autorun(function() {
-    console.log('There are ' + Tasks.find().count() + ' posts');
-    $('#tileGrid').freetile();
-});
 
+    /*
+    setInterval(function(){
+        Tasks.update(Tasks.findOne()._id, {$set: {importance: Math.floor((Math.random() * 6) + 1)}});
+        setTimeout(function(){$('#tileGrid').freetile();},250);
+    },2000);
+    */
 
 }
+

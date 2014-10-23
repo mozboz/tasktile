@@ -1,8 +1,15 @@
 <head>
   <title>tasktile</title>
+    <script>
+        $(function() {
+            $( "#datepicker" ).datepicker();
+        });
+    </script>
 </head>
 
 <body>
   {{> taskGrid}}
     {{ > taskList}}
+
+<span id="#gomodal">modal</span>
 </body>
