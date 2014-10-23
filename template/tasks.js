@@ -136,6 +136,7 @@ if (Meteor.isClient) {
                 importance: $(event.target).find('[name=inputImportance]').val()
             }
             task._id = Tasks.insert(task);
+            refitTiles();
             // Meteor.Router.to('postPage', post);
 
         }
