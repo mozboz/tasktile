@@ -142,8 +142,7 @@ if (Meteor.isClient) {
         },
 
         'click #gomodal': function(event) {
-            console.log("ohhai2");
-            bootbox.alert("Hello world!");
+            $('#taskForm').modal();
         }
     });
 
