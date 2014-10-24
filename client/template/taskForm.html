@@ -13,8 +13,7 @@
                 <input type="hidden" id="_id" name="_id" value="blibble" />
                 {{#with task}}
                 <div>
-                    <h4>Name: {{taskName}}</h4>
-                    Task Name: <input name="inputTaskName" type="text" value="" placeholder="Task Name"/>
+                    Task Name: <input name="inputTaskName" type="text" value="{{taskName}}" placeholder="Task Name"/>
                     Importance: <select name="inputImportance">
                     {{#each importanceOptions}}
                     <option value="{{importanceValue}}">{{importanceName}}</option>

@@ -166,5 +166,8 @@ Template.taskTile.events({
 Template.taskForm.helpers({
     task: function() {
         return Tasks.findOne(Session.get('selectedTask'));
+    },
+    importanceOptions: function() {
+        return IMPORTANCES;
     }
 });
