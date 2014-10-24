@@ -1,5 +1,6 @@
 <template name="taskForm">
     <div id="taskForm" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
         <form id="manage-roles-form">
 
             <div class="modal-header">
@@ -10,11 +11,17 @@
             <div class="modal-body">
 
                 <input type="hidden" id="_id" name="_id" value="blibble" />
-
+                {{#with task}}
                 <div>
-                    <h4>Name: foob</h4>
+                    <h4>Name: {{taskName}}</h4>
+                    Task Name: <input name="inputTaskName" type="text" value="" placeholder="Task Name"/>
+                    Importance: <select name="inputImportance">
+                    {{#each importanceOptions}}
+                    <option value="{{importanceValue}}">{{importanceName}}</option>
+                    {{/each}}
+                </select>
                 </div>
-
+                {{/with}}
                 <br />
                 <select id="roles" name="roles" multiple>
                     <option value="1">1</option>
