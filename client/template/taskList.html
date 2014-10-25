@@ -1,22 +1,9 @@
 <template name="taskList">
     <div id="tileList" style="display: block; visibility: visible; position: relative; max-width: 962px; margin: 50px auto;">
+        <div style="height: 0; border-top: 2px solid #000000; width: 50%; margin: 5px 0;"></div>
 
-    <div>
-        <form>
-            Task Name: <input name="inputTaskName" type="text" value="" placeholder="Task Name"/>
-                Importance: <select name="inputImportance">
-                {{#each importanceOptions}}
-                    <option value="{{importanceValue}}">{{importanceName}}</option>
-                {{/each}}
-            </select>
-            <p>Date: <input type="text" id="datepicker"></p>
-            <input type="submit" value="Add"/>
-        </form>
-    </div>
-
-    <div style="height: 0; border-top: 2px solid #000000; width: 50%; margin: 5px 0;"></div>
-    {{#each tasks}}
-        {{> taskListItem}}
+        {{#each tasks}}
+            {{> taskListItem}}
         {{/each}}
     </div>
 

@@ -46,7 +46,7 @@ function getTileForegroundColour(importance) {
     return importanceMap.rect6[importance][FOREGROUND_COLOUR];
 }
 
-function refitTiles() {
+refitTiles = function() {
     setTimeout(function(){$('#tileGrid').freetile();}, 250);
 }
 
@@ -126,26 +126,6 @@ Template.taskList.helpers({
 
 });
 
-Template.taskList.events({
-    'submit form': function(event) {
-        event.preventDefault();
-        console.log($(event.target).find('[name=inputTaskName]').val() + ' ' + $(event.target).find('[name=inputImportance]').val());
-
-        var task = {
-            taskName: $(event.target).find('[name=inputTaskName]').val(),
-            importance: $(event.target).find('[name=inputImportance]').val()
-        }
-        task._id = Tasks.insert(task);
-        refitTiles();
-        // Meteor.Router.to('postPage', post);
-
-    },
-
-    'click #gomodal': function(event) {
-        $('#taskForm').modal();
-    }
-});
-
 Template.taskTile.events({
     'click #bigger': function(event) {
         Tasks.update(this._id, {$set: {importance: Math.min(IMPORTANCES.length, parseInt(this.importance) + 1)} });
@@ -156,18 +136,5 @@ Template.taskTile.events({
         Tasks.update(this._id, {$set: {importance: Math.max(1, parseInt(this.importance) - 1)} });
         refitTiles();
         event.stopImmediatePropagation();
-    },
-    'click': function(event) {
-        Session.set('selectedTask', this._id);
-        $('#taskForm').modal();
-    }
-})
-
-Template.taskForm.helpers({
-    task: function() {
-        return Tasks.findOne(Session.get('selectedTask'));
-    },
-    importanceOptions: function() {
-        return IMPORTANCES;
     }
 });

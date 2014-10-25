@@ -1,36 +1,42 @@
 <template name="taskForm">
-    <div id="taskForm" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="taskForm" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
 
-        <form id="manage-roles-form">
+        {{#with task}}
+        <form>
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="myModalLabel">Manage Permissions</h3>
+                <h3 id="myModalLabel">Update Task</h3>
             </div>
 
             <div class="modal-body">
 
-                <input type="hidden" id="_id" name="_id" value="blibble" />
-                {{#with task}}
+                <input type="hidden" id="_id" name="_id" value="blibble"/>
+
                 <div>
-                    Task Name: <input name="inputTaskName" type="text" value="{{taskName}}" placeholder="Task Name"/>
-                    Importance: <select name="inputImportance">
-                    {{#each importanceOptions}}
-                    <option value="{{importanceValue}}">{{importanceName}}</option>
-                    {{/each}}
-                </select>
+                    <p>Task Name: <input name="inputTaskName" type="text" value="{{taskName}}" placeholder="Task Name"/></p>
+
+                    <p>Importance: <select name="inputImportance" id="inputImportance">
+                        {{#each importanceOptions}}
+                        <option value="{{importanceValue}}">{{importanceName}}</option>
+                        {{/each}}
+                    </select></p>
+
+                    <p>Buddy emails (comma delimited): <input name="inputBuddyEmails" type="text" value="{{buddyEmails}}" placeholder="Buddy Emails" class="input-xlarge"/></p>
+
+                    <p>Stakeholder emails (comma delimited): <input name="inputStakeholderEmails" type="text" value="{{stakesolderEmails}}" placeholder="Stakeholder Emails" class="input-xlarge"/></p>
+
+                    <p>Due Date: <input type="text" id="inputTaskDueDate" name="inputTaskDueDate"></p>
                 </div>
-                {{/with}}
-                <br />
-                <select id="roles" name="roles" multiple>
-                    <option value="1">1</option>
-                </select>
+
             </div>
 
             <div class="modal-footer">
                 <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                <button id="saveChanges" class="btn btn-primary">Save changes</button>
+                <button id="taskFormSubmitButton" class="btn btn-primary">Save</button>
             </div>
         </form>
+        {{/with}}
     </div>
 </template>
