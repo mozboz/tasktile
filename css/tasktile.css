@@ -1,0 +1,20 @@
+
+.quote {
+    width: 600px;
+    margin: 50px auto;
+}
+
+.task-list {
+    display: block;
+    visibility: visible;
+    position: relative;
+    max-width: 962px;
+    margin: 50px auto;
+}
+
+.task-list-break {
+    height: 0;
+    border-top: 2px solid #000000;
+    width: 50%;
+    margin: 5px 0;
+}
