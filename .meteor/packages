@@ -10,3 +10,5 @@ jquery-ui
 bootboxjs
 bootstrap
 email
+iron:router
+
