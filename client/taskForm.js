@@ -8,8 +8,8 @@ taskFormMode = null;
 Deps.autorun(function () {
     console.log(Session.get('selectedTask'));
     task = Tasks.findOne(Session.get('selectedTask'));
-    console.log(task);
     if (task) {
+        console.log(task);
         $("#inputImportance").val(task.importance);
         $("#inputTaskDueDate").datepicker();
         $("#inputTaskDueDate").datepicker("setDate", task.dueDate);
@@ -18,7 +18,7 @@ Deps.autorun(function () {
 
 Template.taskForm.helpers({
     task: function() {
-        return Tasks.findOne(Session.get('selectedTask'));
+        return Tasks.findOne(Session.get('selectedTask')) || {};
     },
     importanceOptions: function() {
         return IMPORTANCES;
@@ -38,7 +38,7 @@ Template.taskForm.events({
         if (taskFormMode == FORM_MODE_EDIT) {
             task._id = Tasks.update(Session.get('selectedTask'), {$set: task});
         } else {
-            console.log("Only FORM_MODE_EDIT is implemented");
+            Tasks.insert(task);
         }
         $('#taskForm').modal('hide');
         refitTiles();
@@ -58,7 +58,17 @@ Template.taskTile.events({
 
 function setTaskFormMode(mode) {
     taskFormMode = mode;
-    if (mode==FORM_MODE_EDIT) {
-        $('#taskFormSubmitButton').html('Save');
+    if (mode == FORM_MODE_EDIT) {
+        $('#taskFormSubmitButton').html('Update');
+    } else if (mode == FORM_MODE_ADD) {
+        $('#taskFormSubmitButton').html('Add');
     }
 }
+
+Template.taskGrid.events({
+    'click #newTask': function(event) {
+        Session.set('selectedTask', 'NULL');
+        setTaskFormMode(FORM_MODE_ADD);
+        $('#taskForm').modal();
+    }
+})
