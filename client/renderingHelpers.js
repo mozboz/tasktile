@@ -1,8 +1,4 @@
 
-Meteor.startup(function() {
-    refitTiles();
-})
-
 importanceMap = {"rect6": {
     1: [100,60,12,  '#b2b4e4', '#ffffff'],
     2: [100,120,14, '#bfc4da', '#ffffff'],
