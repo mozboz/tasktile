@@ -4,3 +4,5 @@ Meteor.startup(function(){
     }, 100);
 
 });
+
+Meteor.subscribe('tasks');

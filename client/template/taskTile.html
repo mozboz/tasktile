@@ -1,8 +1,8 @@
 <template name="taskTile">
     <div class="element tiled tile" style="width: {{width}}px; height: {{height}}px; background: {{bgcolour}} ">
         <div><span style="font-size: {{fontSize}}px; color: {{fgcolour}}">{{taskName}}</span></div>
-        <div style="font-size: 9px; color: blue">
-            <span id="bigger">bigger</span> - <span id="smaller">smaller</span>
+        <div style="font-size: 9px; color: blue; position: absolute; bottom: 3px; right: 3px; display: none;" id="controls{{_id}}">
+            <span id="bigger">bigger</span> - <span id="smaller">smaller</span> - <img src="http://infolib.lotus.com/resources/smartcloudnotes/en_us/ul_trash.gif">
         </div>
     </div>
 </template>

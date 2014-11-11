@@ -1,5 +1,11 @@
 <template name="taskGrid">
-    <div style="float: left; position: fixed"><img src="http://www.mathagogy.com/wp-content/uploads/2014/10/VISUALISATION-200x200.png"></div>
+    <div style="float: left; position: fixed; margin-left: 50px;">
+        <p><img src="http://www.mathagogy.com/wp-content/uploads/2014/10/VISUALISATION-200x200.png"></p>
+        <p>Menu 1<br />
+            Menu 2<br />
+        </p>
+
+    </div>
     <div id="tileGrid" style="visibility: visible; position: relative; height: 624px; max-width: 962px; margin: 25px auto; background: #ebebeb;">
         {{#each tasks}}
         {{> taskTile}}

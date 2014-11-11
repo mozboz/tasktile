@@ -1,12 +1,10 @@
-<head>
-  <title>tasktile</title>
-</head>
+<template name="layout">
 
-<body>
-  <div>hallo</div>
+    {{>yield}}
 
+    {{> taskForm}}
 
-  <div class="quote">
-      The secret of getting ahead is getting started. The secret of getting started is breaking your complex overwhelming tasks into small manageable tasks, and then starting on the first one.
-  </div>
-</body>
+    <div class="quote">
+        The secret of getting ahead is getting started. The secret of getting started is breaking your complex overwhelming tasks into small manageable tasks, and then starting on the first one.
+    </div>
+</template>

@@ -136,5 +136,11 @@ Template.taskTile.events({
         Tasks.update(this._id, {$set: {importance: Math.max(1, parseInt(this.importance) - 1)} });
         refitTiles();
         event.stopImmediatePropagation();
+    },
+    'mouseover': function(event) {
+        $('#controls' + this._id).show();
+    },
+    'mouseout': function(event) {
+        $('#controls' + this._id).hide();
     }
 });
