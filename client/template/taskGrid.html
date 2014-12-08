@@ -1,10 +1,15 @@
 <template name="taskGrid">
-    <div id="tileGrid" style="visibility: visible; position: relative; height: 624px; max-width: 962px; margin: 25px auto; background: #ebebeb;">
-        {{#each tasks}}
-        {{> taskTile}}
-        {{/each}}
-        <div class="element tiled tile" id="newTask" style="width: 50px; height: 50px; background: green">
-            <div><span style="font-size: 12px; color: white">New Task</span></div>
+    <div id="container" style="width: 1000px; margin-left: auto; margin-right: auto;">
+        <p class="pageheader">Your tasks</p>
+        <div id="tileGrid" style="margin: 25px auto;">
+            {{#each tasks}}
+            {{> taskTile}}
+            {{/each}}
+            <div class="element tiled tile" id="newTask" style="width: 50px; height: 50px; background: green">
+                <div><span style="font-size: 12px; color: white">New Task</span></div>
+            </div>
+        </div>
+        <div id="tileGridSecond" style="margin: 25px auto; background: green;">
         </div>
     </div>
 </template>

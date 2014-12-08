@@ -1,11 +1,11 @@
 
 importanceMap = {"rect6": {
-    1: [100,60,12,  '#b2b4e4', '#ffffff'],
-    2: [100,120,14, '#bfc4da', '#ffffff'],
-    3: [100,180,16, '#769acc', '#ffffff'],
-    4: [100,240,18, '#5887bd', '#ffffff'],
-    5: [200,120,20, '#314c9d', '#ffffff'],
-    6: [200,240,22, '#2f3269', '#ffffff']
+    1: [65,65,18,  '#b2b4e4', '#000000'],
+    2: [140,65,12, '#bfc4da', '#ffffff'],
+    3: [140,140,12, '#769acc', '#ffffff'],
+    4: [290,290,14, '#5887bd', '#ffffff'],
+    5: [370,290,16, '#314c9d', '#ffffff'],
+    6: [570,290,22, '#2f3269', '#ffffff']
 }};
 
 WIDTH=0;
@@ -43,7 +43,13 @@ function getTileForegroundColour(importance) {
 }
 
 refitTiles = function() {
-    setTimeout(function(){$('#tileGrid').freetile();}, 250);
+
+    setTimeout(function() {
+
+            $('#tileGrid').freetile();
+    }, 250);
+
+//  setTimeout(function(){$('#tileGridSecond').freetile();}, 250);
 }
 
 Template.taskListItem.helpers({
@@ -75,6 +81,14 @@ Template.taskTile.helpers({
 
     bgcolour: function() {
         return getTileBackgroundColour(this.importance);
+    },
+
+    importanceIs: function(importance) {
+        return this.importance === importance;
+    },
+
+    importanceIsLessThan: function(importance) {
+        return this.importance < importance;
     }
 });
 
@@ -140,3 +154,22 @@ Template.taskTile.events({
         $('#controls' + this._id).hide();
     }
 });
+
+// This is called before the element is attached to the DOM and available for editing
+Template.taskTile.created = function() {
+    // alert(this.data._id + ' created');
+    // $('#tile' + this.data._id).text('foo');
+    // $('#tile' + this.data._id).html('foo');
+    // $('#tile' + this.data._id).hide().html('bar');
+}
+
+Template.taskTile.rendered = function() {
+    // alert(this.data._id + ' created');
+    // $('#tile' + this.data._id).text('foo');
+    // $('#tile' + this.data._id).html('bar');
+    if (Math.random() < 0.25) {
+        // $('#tile' + this.data._id).appendTo('#tileGridSecond');
+    }
+
+    // $('#tile' + this.data._id).hide().html('bar');
+}

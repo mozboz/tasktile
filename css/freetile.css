@@ -17,7 +17,7 @@ menu, footer, header, nav, section, summary, time, mark, audio, video {
 	------	*/
 
 body {
-    background: #ebebeb;
+    background: #ffffff;
 }
 
 h4 {
@@ -45,28 +45,4 @@ h4 {
     border-right: 1px solid #e9eaeb;
     border-bottom: 1px solid #e9eaeb;
     margin: 4px;
-}
-
-.tile {
-    display: block; position: absolute; left: 0px; top: 0px;
-    webkit-transition: all .25s ease-out;
-    -moz-transition: all .25s ease-out;
-    -o-transition: all .25s ease-out;
-    -ms-transition: all .25s ease-out;
-    transition: all .25s ease-out;
-    border-radius: 2px;
-    padding: 7px;
-
-    box-shadow: 0px 2px 3px #333;
-    -moz-box-shadow: 0px 2px 3px #333;
-    -webkit-box-shadow: 0px 2px 3px #333;
-
-    font-family: "proxima-nova", sans-serif;
-
-}
-
-.tile .header {
-    font-family: "proxima-nova", sans-serif;
-    font-size: 13px;
-    padding: 7px;
 }

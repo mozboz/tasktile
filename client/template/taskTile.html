@@ -1,6 +1,14 @@
 <template name="taskTile">
-    <div class="element tiled tile" style="width: {{width}}px; height: {{height}}px; background: {{bgcolour}} ">
-        <div><span style="font-size: {{fontSize}}px; color: {{fgcolour}}">{{taskName}}</span></div>
+    <div class="element tiled tile tile{{importance}}" id="tile{{_id}}" style="width: {{width}}px; height: {{height}}px; background: {{bgcolour}}; float: left;">
+        {{#if importanceIsLessThan 3}}
+        <div style=""><span style="font-size: 10px; color: {{fgcolour}}">{{taskName}}</span></div>
+        {{else}}
+
+        <div style="margin-left: 0px;"><span style="font-size: 10px; color: {{fgcolour}}"><b>PROJECT_TITLE</b></span></div>
+        <div style=""><span style="font-size: {{fontSize}}px; color: {{fgcolour}}">{{taskName}}</span></div>
+        <div style="margin-left: 0px;"><span style="font-size: 10px; color: {{fgcolour}}"><b>LATER:</b></span></div>
+        <div style=""><span style="font-size: 12px; color: {{fgcolour}}">{{taskName}}</span></div>
+        {{/if}}
         <div style="font-size: 9px; color: blue; position: absolute; bottom: 3px; right: 3px; display: none;" id="controls{{_id}}">
             <span id="bigger">bigger</span> - <span id="smaller">smaller</span> - <img src="http://infolib.lotus.com/resources/smartcloudnotes/en_us/ul_trash.gif">
         </div>

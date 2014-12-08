@@ -10,3 +10,6 @@ bootboxjs
 bootstrap
 email
 iron:router
+accounts-ui
+accounts-facebook
+

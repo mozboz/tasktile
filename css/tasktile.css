@@ -18,3 +18,70 @@
     width: 50%;
     margin: 5px 0;
 }
+
+.tile {
+    display: block; position: absolute; left: 0px; top: 0px;
+    webkit-transition: all .25s ease-out;
+    -moz-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    -ms-transition: all .25s ease-out;
+    transition: all .25s ease-out;
+    border-radius: 2px;
+
+    /*
+    box-shadow: 0px 2px 3px #333;
+    -moz-box-shadow: 0px 2px 3px #333;
+    -webkit-box-shadow: 0px 2px 3px #333;
+    */
+
+    font-family: times;
+
+}
+
+.tile .header {
+    font-family: times;
+    font-size: 13px;
+    padding: 7px;
+}
+
+.tile1 {
+    padding: 6px;
+    line-height: 80%;
+    font-family: sans-serif;
+}
+
+.tile2 {
+    padding: 12px;
+}
+
+.tile3 {
+    padding: 12px;
+}
+
+.tile4 {
+    padding: 12px;
+}
+
+.tile5 {
+    padding: 12px;
+}
+
+.tile6 {
+    padding: 12px;
+}
+
+.pageheader {
+    font-family: MyWebFont, arial;
+    font-size: 40px;
+    /* font-weight: bold; */
+    padding-top: 20px;
+}
+
+@font-face{
+    font-family: 'MyWebFont';
+    src: url('/webfonts/LiberationSerif-Regular-webfont.eot');
+    src: url('/webfonts/LiberationSerif-Regular-webfont.eot?iefix') format('eot'),
+    url('/webfonts/LiberationSerif-Regular-webfont.woff') format('woff'),
+    url('/webfonts/LiberationSerif-Regular-webfont.ttf') format('truetype'),
+    url('/webfonts/LiberationSerif-Regular-webfont.svg#webfont') format('svg');
+}
