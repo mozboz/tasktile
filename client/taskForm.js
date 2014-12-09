@@ -28,11 +28,13 @@ Template.taskForm.helpers({
 Template.taskForm.events({
     'submit form': function(event) {
         event.preventDefault();
-        console.log($(event.target).find('[name=inputTaskName]').val() + ' ' + $(event.target).find('[name=inputImportance]').val());
+        console.log($(event.target).find('[name=inputSummary]').val() + ' ' + $(event.target).find('[name=inputImportance]').val());
 
         var task = {
-            taskName: $(event.target).find('[name=inputTaskName]').val(),
-            importance: $(event.target).find('[name=inputImportance]').val(),
+            tag: $(event.target).find('[name=inputTagName]').val(),
+            summary: $(event.target).find('[name=inputSummary]').val(),
+            action: $(event.target).find('[name=inputAction]').val(),
+            importance: parseInt($(event.target).find('[name=inputImportance]').val()),
             dueDate: $(event.target).find('[name=inputTaskDueDate]').val()
         };
         if (taskFormMode == FORM_MODE_EDIT) {

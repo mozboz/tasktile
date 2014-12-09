@@ -43,13 +43,23 @@ function getTileForegroundColour(importance) {
 }
 
 refitTiles = function() {
-
+            /*
     setTimeout(function() {
 
-            $('#tileGrid').freetile();
-    }, 250);
+            // $('#tileGrid').freetile();
+        t = Tasks.find({}, {sort: {importance: -1}});
+        t.forEach(function (task) {
+            alert(task.importance);
+        });
+        // alert(t.count());
+        /*(
+        while(t.hasNext()) {
+            tk = t.next();
+            alert(tk.importance);
+        }
+    }, 1000);*/
 
-//  setTimeout(function(){$('#tileGridSecond').freetile();}, 250);
+  setTimeout(function(){$('#tileGrid').freetile();}, 250);
 }
 
 Template.taskListItem.helpers({
@@ -89,6 +99,10 @@ Template.taskTile.helpers({
 
     importanceIsLessThan: function(importance) {
         return this.importance < importance;
+    },
+
+    tagUpper: function() {
+        return this.tag.toUpperCase();
     }
 });
 
@@ -106,7 +120,7 @@ Template.taskListItem.events({
 
 Template.taskGrid.helpers({
     tasks: function() {
-        return Tasks.find();
+        return Tasks.find({}, {sort: {importance: -1}});
     },
 
     width: function() {
@@ -120,7 +134,7 @@ Template.taskGrid.helpers({
 
 Template.taskList.helpers({
     tasks: function() {
-        return Tasks.find();
+        return Tasks.find({}, {sort: {importance: -1}});
     },
     importanceOptions: function() {
         return IMPORTANCES;
@@ -157,16 +171,19 @@ Template.taskTile.events({
 
 // This is called before the element is attached to the DOM and available for editing
 Template.taskTile.created = function() {
-    // alert(this.data._id + ' created');
+    // alert(this.data.importance  + ' created');
     // $('#tile' + this.data._id).text('foo');
     // $('#tile' + this.data._id).html('foo');
     // $('#tile' + this.data._id).hide().html('bar');
+    // alert('bar');
 }
 
 Template.taskTile.rendered = function() {
     // alert(this.data._id + ' created');
     // $('#tile' + this.data._id).text('foo');
     // $('#tile' + this.data._id).html('bar');
+    // $('#tileGrid').freetile();
+    // alert('foo');
     if (Math.random() < 0.25) {
         // $('#tile' + this.data._id).appendTo('#tileGridSecond');
     }

@@ -1,4 +1,4 @@
-<template name="taskForm">
+<template name="taskForm" xmlns="http://www.w3.org/1999/html">
     <div id="taskForm" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true">
 
@@ -15,7 +15,12 @@
                 <input type="hidden" id="_id" name="_id" value="blibble"/>
 
                 <div>
-                    <p>Task Name: <input name="inputTaskName" type="text" value="{{taskName}}" placeholder="Task Name"/></p>
+                    <p>Tag: <input name="inputTagName" type="text" value="{{tag}}" placeholder="Tag"/></p>
+
+                    <p>Task Summary: <input name="inputSummary" type="text" value="{{summary}}" placeholder="Task Summary"/></p>
+
+                    <p>How to complete this task: <textarea rows="3" cols="120" name="inputAction" type="text" placeholder="Task Action">{{action}}</textarea></p>
+
 
                     <p>Importance: <select name="inputImportance" id="inputImportance">
                         {{#each importanceOptions}}
